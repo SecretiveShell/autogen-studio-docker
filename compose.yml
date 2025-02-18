@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  autogenstudio:
+    build: .
+    container_name: autogenstudio
+    ports:
+      - "8081:8081"
+    volumes:
+      - autogenstudio_data:/app/data
+    environment:
+      - AUTOGENSTUDIO_APPDIR=/app/data
+    restart: unless-stopped
+
+volumes:
+  autogenstudio_data:
+    driver: local
